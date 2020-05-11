@@ -34,11 +34,11 @@ class DomainManifestSettingsForm extends ConfigFormBase {
     ];
   }
 
-
   /**
    * Retrieve list of all domains.
    *
-   * @return \Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
+   * @return \Drupal\Core\Entity\EntityBase[]
+   *   The called object.
    */
   private function getDomainList() {
     $query        = \Drupal::entityQuery('domain');
@@ -119,8 +119,6 @@ class DomainManifestSettingsForm extends ConfigFormBase {
         '#default_value' => $config->get('background_color_' . $domain->id()),
       ];
     }
-
-    //    dsm($domains_list);
 
     return parent::buildForm($form, $form_state);
   }

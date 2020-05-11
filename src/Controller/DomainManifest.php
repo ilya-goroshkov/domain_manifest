@@ -13,7 +13,7 @@ class DomainManifest extends ControllerBase {
   /**
    * Returns a manifest file contains.
    *
-   * @return JsonResponse
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   JSON array with file contains.
    */
   public function manifestFile() {
