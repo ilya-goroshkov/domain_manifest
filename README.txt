@@ -54,5 +54,5 @@ MAINTAINERS
 
 Current maintainers:
  * Ilya Goroshkov - https://www.drupal.org/u/ilyagoroshkov
- * Test icon images was downloaded from https://github.com/andrebaltieri/pwa-desktop-test
- * Test splash screens images was downloaded from https://github.com/applification/pwa-splash-screens
+ * Test icon images - was downloaded from https://github.com/andrebaltieri/pwa-desktop-test
+ * Test splash screens images - was downloaded from https://github.com/applification/pwa-splash-screens
