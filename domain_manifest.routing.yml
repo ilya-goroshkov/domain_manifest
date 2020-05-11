@@ -1,0 +1,14 @@
+domain_manifest.settings:
+  path: '/admin/config/development/domain_manifest'
+  defaults:
+    _form: '\Drupal\domain_manifest\Form\DomainManifestSettingsForm'
+    _title: 'Domain Manifest Module Settings'
+  requirements:
+    _permission: 'administer site configuration'
+domain_manifest.manifest_file:
+  path: '/manifest.json'
+  defaults:
+    _controller: '\Drupal\domain_manifest\Controller\DomainManifest::manifestFile'
+    _title: 'Manifest File'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function domain_manifest_page_attachments(array &$page) {
+  $module_path = drupal_get_path('module', 'domain_manifest');
+
+  $links_list = [
+    'manifest'           => [
+      'rel'  => 'manifest',
+      'href' => '/manifest.json',
+    ],
+    'touch_icon'         => [
+      'rel'  => 'apple-touch-icon',
+      'href' => '/' . $module_path . '/images/icons/icon-128x128.png',
+    ],
+    'splash1'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-640x1136.png',
+    ],
+    'splash2'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-750x1294.png',
+    ],
+    'splash3'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-1125x2436.png',
+    ],
+    'splash4'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-1242x2148.png',
+    ],
+    'splash5'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-1536x2048.png',
+    ],
+    'splash6'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-1668x2224.png',
+    ],
+    'splash7'     => [
+      'rel'   => 'apple-touch-startup-image',
+      'href'  => '/' . $module_path . '/images/splashscreens/launch-2048x2732.png',
+    ],
+  ];
+
+  \Drupal::moduleHandler()
+    ->invokeAll('domain_manifest_links_alter', [&$links_list]);
+
+  foreach ($links_list as $key => $value) {
+    $link                             = [
+      '#tag'        => 'link',
+      '#attributes' => $value,
+    ];
+    $page['#attached']['html_head'][] = [$link, $key];
+  }
+
+  $meta                             = [
+    '#tag'        => 'meta',
+    '#attributes' => [
+      'name'    => 'apple-mobile-web-app-capable',
+      'content' => 'yes',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$meta, 'meta'];
+
+}

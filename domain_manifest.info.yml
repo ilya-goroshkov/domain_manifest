@@ -1,0 +1,7 @@
+name: Domain Manifest
+description: Provides functionality for different manifest file for each domain record.
+type: module
+core: 8.x
+configure: domain_manifest.settings
+dependencies:
+- domain
